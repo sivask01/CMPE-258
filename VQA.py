@@ -100,8 +100,6 @@ vqa_model = build_vqa_model(image_model, text_model)
 vqa_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 vqa_model.summary()
 
-
-
 # Dummy variables for illustration
 train_images = []  # Should be numpy arrays from your preprocessing step
 train_questions = []  # Should be tokenized and padded sequences
