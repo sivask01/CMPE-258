@@ -17,7 +17,7 @@
     * [Architecture](#architecture)
     * [Options](#options)
     * [Datasets](#datasets)
-    * [Models](#models)
+    
 * [Quick examples](#quick-examples)
     * [Extract features from COCO](#extract-features-from-coco)
     * [Extract features from VisualGenome](#extract-features-from-visualgenome)
@@ -27,9 +27,7 @@
     * [Monitor training](#monitor-training)
     * [Restart training](#restart-training)
     * [Evaluate models on VQA](#evaluate-models-on-vqa)
-    * [Web demo](#web-demo)
-* [Citation](#citation)
-* [Acknowledgment](#acknowledgment)
+    
 
 ## Introduction
 
@@ -221,20 +219,9 @@ We currently provide four datasets:
 - [VQA 1.0](http://www.visualqa.org/vqa_v1_download.html) comes with four datasets: trainset, valset, testset (including test-std and test-dev) and "trainvalset" (concatenation of trainset and valset)
 - [VQA 2.0](http://www.visualqa.org) same but twice bigger (however same images than VQA 1.0)
 
-We plan to add:
 
-- [CLEVR](http://cs.stanford.edu/people/jcjohns/clevr/)
 
-### Models
 
-We currently provide four models:
-
-- MLBNoAtt: a strong baseline (BayesianGRU + Element-wise product)
-- [MLBAtt](https://arxiv.org/abs/1610.04325): the previous state-of-the-art which adds an attention strategy
-- MutanNoAtt: our proof of concept (BayesianGRU + Mutan Fusion)
-- MutanAtt: the current state-of-the-art
-
-We plan to add several other strategies in the futur.
 
 ## Quick examples
 
@@ -374,35 +361,3 @@ Evaluate the model from the best checkpoint. If your model has been trained on t
 python train.py --vqa_trainsplit train --path_opt options/vqa/mutan_att.yaml --dir_logs logs/vqa/mutan_att --resume best -e
 ```
 
-### Web demo
-
-You must set your local ip address and port in `demo_server.py`  line 169 and your global ip address and port in `demo_web/js/custom.js` line 51.
-The port associated to the global ip address must redirect to your local ip address.
-
-Launch your API:
-```
-CUDA_VISIBLE_DEVICES=0 python demo_server.py
-```
-
-Open `demo_web/index.html` on your browser to access the API with a human interface.
-
-## Citation
-
-Please cite the arXiv paper if you use Mutan in your work:
-
-```
-@article{benyounescadene2017mutan,
-  author = {Hedi Ben-Younes and 
-    R{\'{e}}mi Cad{\`{e}}ne and
-    Nicolas Thome and
-    Matthieu Cord},
-  title = {MUTAN: Multimodal Tucker Fusion for Visual Question Answering},
-  journal = {ICCV},
-  year = {2017},
-  url = {http://arxiv.org/abs/1705.06676}
-}
-```
-
-## Acknowledgment
-
-Special thanks to the authors of [MLB](https://arxiv.org/abs/1610.04325) for providing some [Torch7 code](https://github.com/jnhwkim/MulLowBiVQA), [MCB](https://arxiv.org/abs/1606.01847) for providing some [Caffe code](https://github.com/akirafukui/vqa-mcb), and our professors and friends from LIP6 for the perfect working atmosphere.
