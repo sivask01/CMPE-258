@@ -337,8 +337,6 @@ Create a visualization of multiple experiments to compare them or monitor them l
 python visu.py --dir_logs logs/vqa/mutan_noatt,logs/vqa/mutan_att
 ```
 
-
-
 ### Restart training
 
 Restart the model from the last checkpoint.
